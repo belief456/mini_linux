@@ -1,0 +1,15 @@
+
+X86_64:
+	qemu-system-x86_64 -curses -drive format=raw,file=/dev/sdb
+	qemu-system-x86_64 -curses -kernel vmlinuz-5.8.3-lfs-10.0  -initrd  rootfs.cpio.gz  
+
+ARM:
+	cross compile kernel:
+		apt-get install gcc-arm-linux-gnueabi	
+		make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- defconfig
+		make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi-  -j  4
+
+	rootfs:
+		replace busybox with busybox-armv71
+
+	qemu-system-arm -curses -nographic -machine virt -cpu cortex-a7 -kernel zImage -initrd rootfs.cpio.gz 

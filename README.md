@@ -85,8 +85,5 @@ refer: https://revcode.wordpress.com/2012/02/25/booting-a-minimal-busybox-based-
 	
 	create a new virtual machine, using the previous hard disk, and enjoy!
 	
-	Or use qemu:
-		qemu-system-x86_64 -curses -kernel vmlinuz-5.8.3-lfs-10.0  -initrd  rootfs.cpio.gz	
 
-	
 
